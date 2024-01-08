@@ -1,0 +1,36 @@
+html {font-family:Arial, Helvetica, sans-serif; color:black; }
+body { margin-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px;}
+div#Container { width:95%; margin-right: 2%; margin-left: 2%; }
+div#Container > div#Header { Border: solid; width:100%; height:90px; margin:5px auto;}
+div#Container > div#Header > div#Left_Logo {float: left; position: relative; width: 12%;}
+div#Container > div#Header > div#Right_Logo { float: left; position: relative; width: 25%;}
+div#Container > div#Header > div#Search  {float: left; position: relative; width: 30%;}
+div#Container > div#Header > div#Right_Info { float: left; position: relative; width: 25%;}
+div#Container > div#Header > div#Left_Logo > div {padding:5px; font-size:large; font-family:Arial, Helvetica, sans-serif; font-weight:bold; }
+div#Container > div#Header > div#Right_Logo > div {  padding:5px; font-size:large; font-family:Arial, Helvetica, sans-serif; font-weight:bold;} 
+div#Container > div#Header > div#Search > div {  padding:5px; font-size:large; font-family:Arial, Helvetica, sans-serif; font-weight:bold;}
+div#Container > div#Header > div#Right_Info > div {  padding:5px; font-size:large; font-family:Arial, Helvetica, sans-serif; font-weight:bold;}
+div#Container > div#nav_Menu { width:100%;} 
+div#Container > div#nav_Menu > div { width: 100%; } 
+div#Container > div#nav_Menu > div ul {padding: 0px; clear:both;}
+div#Container > div#nav_Menu > div ul li { float:left; background-color:#666666; width:20%; list-style:none; height:40px; 
+												line-height:40px; font-size:20px; text-align:center;}
+div#Container > div#nav_Menu >  div ul li ul { display:none;}
+div#Container > div#nav_Menu >  div ul li:hover > ul { background-color:#00FF00;}
+div#Container > div#nav_Menu > div ul li:hover > ul { display:block;}  
+
+div#Container > div#nav_Menu > div ul li ul li { position:relative; width:100%; text-align:center; }
+div#Container > div#nav_Menu > div ul li ul li ul {position:absolute; left:100%; top:0; width:75%;}
+div#Container > div#Banner {left: 0px; top: 2px; right: 0px; bottom: 2px; width: 100%;  margin: 2px; height: 200px; }
+
+div#Container > div#Content {width: 100%; height: auto; border:solid; clear:both; }
+div#Container > div#Content > div#Content_area { border: solid; float:left; width: 50%; height: auto; margin: 2%; }
+div#Container > div#Content > div#Content_area > div { padding:0px;  }
+div#Container > div#Content > div#Left_Col {  border: dotted; float: left; width: 22%; height:auto; margin-top:2%; }
+div#Container > div#Content > div#Left_Col > div { padding:0px;}
+div#Container > div#Content > div#Right_Col { border: dotted; float: right; width: 22%; height: auto; margin-top:2%;}
+div#Container > div#Content > div#Right_Col > div{  padding: 0px; }
+
+div#Container > div#footer { width:100%; height:10px; }
+div#Container > div#footer > div { clear:left; background:#666; height: auto;}
+

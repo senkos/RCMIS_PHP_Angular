@@ -1,0 +1,29 @@
+    body { margin: 0px; padding: 0; background-color: #FAFAFA; font: 12pt "Tahoma"; }
+    * { box-sizing: border-box; -moz-box-sizing: border-box; }
+    .page { width: 8.5in; min-height: 11in; padding: 2cm; margin: 2cm auto; border: 1px #D3D3D3 solid; border-radius: 5px; background: white; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+		image-resolution:600dpi; -webkit-transform: scale(1.01); transform: scale(1.01); }  
+    .leftside, .rightside { height:100vh; }
+	.leftside {   width:99%;  } 
+	.rightside {  width:99%;}
+	.subpage { padding: 5px; border: 1px #123252 solid; border-radius: 5px;  outline: 5px gray solid; } 
+	
+	
+	
+	
+	
+	
+	
+	@media print , screen {
+        .page { margin: 2cm auto; border: initial; border-radius: initial; width: initial; min-height: initial; box-shadow: initial; background: initial; page-break-after: always;
+		image-resolution:600dpi; -webkit-transform: scale(1.01); transform: scale(1.01); }
+		.subpage { padding: 5px; border: 1px #123252 solid; border-radius: 5px;  outline: 5px gray solid; }   
+		    .leftside, .rightside { height:100vh;  }
+			.leftside {   width:65%; } 
+			.rightside {  width:35%;}
+
+    @page { size: 8.5in 11in portrait; margin: 0px 0px 0px 0px; image-resolution:600dpi;  -webkit-transform: scale(1.01); transform: scale(1.01); }
+	@subpage { padding: 5px; border: 1px #123252 solid; border-radius: 5px;  outline: 5px gray solid; }  
+	@leftside, .rightside { height:100vh;  }
+	@leftside {   width:65%; } 
+	@rightside {  width:35%;}
+    }

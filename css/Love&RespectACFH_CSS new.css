@@ -1,0 +1,30 @@
+html {font-family:Arial, Helvetica, sans-serif; color:black; background-color: white; }
+body { margin-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; background-color: white; }
+#Container { margin-right: 5%; margin-left: 5%; margin-top: 10px; margin-bottom: 5px; height:750px; }
+div#Header { width:800px; height: 100px; margin-top: 2px; margin-bottom: 2px;}
+div#Header > div#Left_Logo { float: left; width: 11.25%; height: 11.25%; }
+div#Header > div#Left_Logo > div { padding:3px;}
+#Right_Logo { background-position: left; position: relative; left: 0px; top: 0px; right: 0px; bottom: 0px;
+	 float: left; width: 35%; margin: 3px; height: 88%; }
+#Search { background-position: left; position: relative; left: 0px; top: 3px; right: 3px; bottom: 0px;
+	float: left; width: 24%; margin: 0px; height: 88%; }
+#Right_Info { background-position: center; position: relative; left: 0px; top: 0px; right: 0px; bottom: 0px;
+	float: right; width: 30%; margin: 3px; height: 88%; }
+#nav_Menu { height: 50px; clear:both; width: 99%;  margin: 0px auto;} 
+#nav_Menu ul {	}
+#nav_Menu ul li{float:left; background-color:black; color:white; width:200px; list-style:none; height:40px; line-height:40px; 
+				font-size:20px; text-align:center; opacity:0.6;}
+#nav_Menu ul li ul { display:none;}
+#nav_Menu ul li:hover { background-color:green; opacity:0.9;}
+#nav_Menu ul li:hover > ul { display:block;} 
+#nav_Menu ul li ul li {position:relative; }
+#nav_Menu ul li ul li ul{position:absolute; left:200px; top:0px; font-size:10px; }
+
+#Banner {left: 0px; top: 2px; right: 0px; bottom: 2px; width: 99.5%;  margin: 2px; height: 200px; }
+#Content {width: 99.5%; height: 750px; left: 0px; top: 0px; right: 0px; bottom: 0px; margin: 0px;  }
+
+#Content_area {	left: 2px; top: 2px; right: 1px; bottom: 2px; float: left; width: 49.5%; margin: 2px; height: 500px;  }
+#Left_Col { float:left; width: 24%; height: 300px; left: 1px; top: 1px; right: 0px; bottom: 1px; margin: 2px; }
+#Right_col {  float: right; width: 24%; height: 300px; left: 0px; top: 1px; right: 1px; bottom: 1px; margin: 2px;  }
+#footer { float:left; width:99.5%; height:200px; }
+

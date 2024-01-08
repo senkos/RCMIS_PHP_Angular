@@ -1,0 +1,14 @@
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\bin\SampleWebApi.dll.config
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\bin\SampleWebApi.dll
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\bin\SampleWebApi.pdb
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\bin\Newtonsoft.Json.dll
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\bin\System.Net.Http.Formatting.dll
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\bin\System.Web.Http.dll
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\bin\System.Web.Http.WebHost.dll
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\bin\Newtonsoft.Json.xml
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\bin\System.Net.Http.Formatting.xml
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\bin\System.Web.Http.xml
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\bin\System.Web.Http.WebHost.xml
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\obj\Debug\SampleWebApi.csprojResolveAssemblyReference.cache
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\obj\Debug\SampleWebApi.dll
+C:\Apache24\htdocs\SampleWebApi\SampleWebApi\obj\Debug\SampleWebApi.pdb
