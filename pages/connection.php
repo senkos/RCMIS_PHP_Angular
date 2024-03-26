@@ -3,8 +3,9 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
 header('Access-Control-Max-Age: 1000');
+
 use PHPMailer\PHPMailer\PHPMailer;  require_once ('../PHPMailer/PHPMailer.php');   require_once "../PHPMailer/SMTP.php";   require_once "../PHPMailer/Exception.php";
-$servername = "localhost"; $username = "root"; $getName=htmlspecialchars($_GET['getName']); $r_P=htmlspecialchars($_GET['root_P']);  $Data=array(); 
+$dbName= "heroku_cdcc5d2c5ee9a30"; $servername = "us-cluster-east-01.k8s.cleardb.net"; $username = "b91508f33657c6"; $getName=htmlspecialchars($_GET['getName']); $r_P= "b90e8ecb"; /*htmlspecialchars($_GET['root_P']);*/  $Data=array(); 
 
 function  decrypt ($tData, $t_Name) {  if ($t_Name=='employee') foreach($tData as $k=>$v) { if ($k=='EmpFName' || $k=='EmpMName' || $k=='EmpLName' || $k=='EmpBD' || $k=='EmpPhone' || $k=='EmpEaddress' || $k=='EmpUserId' || $k=='EmpStreetAdd' || $k=='EmpPassword' )  { $tData[$k]= htmlspecialchars(decryption($v));  }  }
 				else if ($t_Name=='resident') { foreach($tData as $k=>$v) {  if ($k=='1' || $k=='2' || $k=='3' || $k=='ResDB' || $k=='ResFName' || $k=='ResMName' || $k=='ResLName' || $k=='ResSSN') $tData[$k]= htmlspecialchars(decryption($v)); } }
