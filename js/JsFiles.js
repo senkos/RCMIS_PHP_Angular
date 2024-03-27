@@ -71,7 +71,7 @@ app.controller ('loginCtrl', function ($scope,$rootScope, $http, $location, $coo
 		$scope.getColNames = function (dbName, tName) { $scope.curK; var data= { 'dbName': dbName, 'tName': tName, 'getName':'getColNames', 'root_P':$rootScope.rootP };  var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) 	.then (function(response) { $scope.rP[$scope.curK].userId=response.data; $scope.rP[$scope.curK].userpass=response.data;   }) , function (response) { alert ("failed to show"); }; }					
 		$scope.saveConfig = function (dbName, tName, uId, uP) { $scope.checkSignIn=true;  $scope.sfChecker=true; $scope.rpChecker=false; $scope.checkConfigT=false; var data= { 'getName':'saveConfiguration', 'root_P':$rootScope.rootP, 'dbName': dbName, 'tName': tName.Table_Name, 'uId': uId.tblLabel, 'uP': uP.tblLabel, 'style': 'Style' };  var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) 	.then (function(response) {  alert (response.data); }) , function (response) { alert ("failed to show"); }; }
 		$scope.checkconfigTRecord = function (rootP) {  var data= { 'getName':'configTRecord', 'root_P':rootP }; var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) .then (function(response) { $scope.rtRec=response.data; $scope.checkConfigTable($scope.rP, rootP); }) , function (response) { alert ("failed to show"); };  }	
-	$scope.signIn = function (userId, userP) { alert ('function signIN'); $rootScope.logRec=null; $scope.checkLoginRecord (userId, userP);  }
+	$scope.signIn = function (userId, userP) { $rootScope.logRec=null; $scope.checkLoginRecord (userId, userP);  }
 		$scope.checkLoginRecord = function (uIdV, uPV) {  alert ('checkLoginRecord'); var data= { 'getName':'logginRecord',  'uIdV':uIdV, 'uPV':uPV }; 
 			var config= {params: data, headers: {'Accept' : 'application/json'}};  $http.get("pages/connection.php", config) .then (function(response)
 			{   if (response.data.length> 0) 
@@ -86,7 +86,7 @@ app.controller ('loginCtrl', function ($scope,$rootScope, $http, $location, $coo
 					document.getElementById("licNoOption").addEventListener("change", $rootScope.licNoChange);  
 					document.getElementById("licNoOption").selectedIndex=0; $cookies.put ('licNo', 0);  
 					$cookies.put('AfcAddress', response.data[0].Address + ' ' + response.data[0].City + ' '+ response.data[0].State + ' ' + response.data[0].Zipcode); $cookies.put('AfcOpName', response.data[0].OpFName + ' ' + response.data[0].OpLName);  $cookies.put('AfcPhone', response.data[0].CellPhone + (response.data[0].HomePhone==null ?'':('/'+ response.data[0].HomePhone)) ); $cookies.put('AfcFax', response.data[0].Fax); 			
-				}  
+				}   alert ('what is going on');
 			$scope.setLoginRecord (response.data);  }) , function (response) { alert ("failed to show"); 
 		   	};  
 		}
