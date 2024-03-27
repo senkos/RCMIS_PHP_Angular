@@ -57,9 +57,9 @@ app.controller ('signoutCtrl', function ($scope, $http, $rootScope, $cookies) {
 });   
 
 app.controller ('loginCtrl', function ($scope,$rootScope, $http, $location, $cookies, $window) {		
-	$rootScope.loggedIn=false; $scope.curK=-1;  $rootScope.rootP='123456789'; $scope.rpChecker=false; $scope.sfChecker=true; $scope.checkConfigT=false; $scope.checkSignIn=true;
+	$rootScope.loggedIn=false; $scope.curK=-1;  /* $rootScope.rootP='123456789'; */ $scope.rpChecker=false; $scope.sfChecker=true; $scope.checkConfigT=false; $scope.checkSignIn=true;
 	//if ($cookies.get('logStatus')==='true')  { $rootScope.loggedIn=true; $rootScope.logStrue();   } else if ($cookies.get('logStatus')==='false')  { $rootScope.logSfalse();   }								   	 
-	$scope.rootPCheck = function (rootP) { $rootScope.rootP=rootP;  var data= {'root_P':rootP, 'getName':'connection'  }; var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) .then (function(response) { $scope.rP=response.data;  if ($scope.rP.length>=0) $scope.checkconfigTRecord (rootP);  }) , function (response) { alert ("failed to show"); };  } 
+	/* $scope.rootPCheck = function (rootP) { $rootScope.rootP=rootP;  var data= {'root_P':rootP, 'getName':'connection'  }; var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) .then (function(response) { $scope.rP=response.data;  if ($scope.rP.length>=0) $scope.checkconfigTRecord (rootP);  }) , function (response) { alert ("failed to show"); };  } 
 		$scope.checkConfigTable = function (configRec, rootP) {  var found=false;  for(var k in configRec) if (configRec[k].dbName=='configuration') {  if ($scope.rtRec[0].fldTName!=null) found=true; } if (found==false) { $scope.createConfigTable(rootP); $scope.checkSignIn=false; $scope.rpChecker=false; $scope.checkConfigT=true; } else {$scope.checkSignIn=true;  $scope.sfChecker=true; $scope.rpChecker=false; $scope.checkConfigT=false; } }
 		$scope.createConfigTable = function (rootP) { var data= { 'getName':'createConfigurationTable', 'root_P':rootP }; var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) .then (function(response) {  }) , function (response) { alert ("failed to show"); }; }
 		$scope.turnOnOffDefault = function(dbName) { $scope.emptyDisable(); for (var k in $scope.rP) if (dbName==$scope.rP[k].dbName) {$scope.curK=k; $scope.rP[k].enadis=false;  $scope.getdbTables(dbName, k);  } } 
@@ -71,8 +71,9 @@ app.controller ('loginCtrl', function ($scope,$rootScope, $http, $location, $coo
 		$scope.getColNames = function (dbName, tName) { $scope.curK; var data= { 'dbName': dbName, 'tName': tName, 'getName':'getColNames', 'root_P':$rootScope.rootP };  var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) 	.then (function(response) { $scope.rP[$scope.curK].userId=response.data; $scope.rP[$scope.curK].userpass=response.data;   }) , function (response) { alert ("failed to show"); }; }					
 		$scope.saveConfig = function (dbName, tName, uId, uP) { $scope.checkSignIn=true;  $scope.sfChecker=true; $scope.rpChecker=false; $scope.checkConfigT=false; var data= { 'getName':'saveConfiguration', 'root_P':$rootScope.rootP, 'dbName': dbName, 'tName': tName.Table_Name, 'uId': uId.tblLabel, 'uP': uP.tblLabel, 'style': 'Style' };  var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) 	.then (function(response) {  alert (response.data); }) , function (response) { alert ("failed to show"); }; }
 		$scope.checkconfigTRecord = function (rootP) {  var data= { 'getName':'configTRecord', 'root_P':rootP }; var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) .then (function(response) { $scope.rtRec=response.data; $scope.checkConfigTable($scope.rP, rootP); }) , function (response) { alert ("failed to show"); };  }	
-	$scope.signIn = function (userId, userP) { $rootScope.logRec=null; $scope.checkLoginRecord (userId, userP);  }
-		$scope.checkLoginRecord = function (uIdV, uPV) {  alert ('checkLoginRecord'); var data= { 'getName':'logginRecord',  'uIdV':uIdV, 'uPV':uPV }; 
+	*/
+ $scope.signIn = function (userId, userP) { $rootScope.logRec=null; $scope.checkLoginRecord (userId, userP);  }
+		$scope.checkLoginRecord = function (uIdV, uPV) { var data= { 'getName':'logginRecord',  'uIdV':uIdV, 'uPV':uPV }; 
 			var config= {params: data, headers: {'Accept' : 'application/json'}};  $http.get("pages/connection.php", config) .then (function(response)
 			{   if (response.data.length> 0) 
 				{  $cookies.put ('logStat', true);    
