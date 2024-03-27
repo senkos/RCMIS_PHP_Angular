@@ -41,7 +41,7 @@ header('Access-Control-Max-Age: 1000');
         	echo "<label class='checkbox'>";
           	echo "<input type='checkbox' value='remember-me'> Remember me </label>";
         	echo "<input type='submit' class='btn btn-large btn-primary' ng-show='rpChecker' ng-click=signIn(userId, loginPass) name='btnOk' value='Ok'>";
-        	echo "<a class='btn btn-large btn-primary' ng-show='sfChecker' ng-click='signIn(userId, loginPass)'> Sign_In</a>";
+        	//echo "<a class='btn btn-large btn-primary' ng-show='sfChecker' ng-click='signIn(userId, loginPass)'> Sign_In</a>";
       	echo "</form>";
 			echo "<form name='myForm' ng-show='checkConfigT'>"; 
 			echo "<table class='table table-bordered'>";
