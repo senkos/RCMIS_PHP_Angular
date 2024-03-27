@@ -72,10 +72,10 @@ app.controller ('loginCtrl', function ($scope,$rootScope, $http, $location, $coo
 		$scope.saveConfig = function (dbName, tName, uId, uP) { $scope.checkSignIn=true;  $scope.sfChecker=true; $scope.rpChecker=false; $scope.checkConfigT=false; var data= { 'getName':'saveConfiguration', 'root_P':$rootScope.rootP, 'dbName': dbName, 'tName': tName.Table_Name, 'uId': uId.tblLabel, 'uP': uP.tblLabel, 'style': 'Style' };  var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) 	.then (function(response) {  alert (response.data); }) , function (response) { alert ("failed to show"); }; }
 		$scope.checkconfigTRecord = function (rootP) {  var data= { 'getName':'configTRecord', 'root_P':rootP }; var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) .then (function(response) { $scope.rtRec=response.data; $scope.checkConfigTable($scope.rP, rootP); }) , function (response) { alert ("failed to show"); };  }	
 	$scope.signIn = function (userId, userP) {  $rootScope.logRec=null; $scope.checkLoginRecord (userId, userP);  }
-		$scope.checkLoginRecord = function (uIdV, uPV) {  var data= { 'getName':'logginRecord',  'uIdV':uIdV, 'uPV':uPV };  
+		$scope.checkLoginRecord = function (uIdV, uPV) {  var data= { 'getName':'logginRecord',  'uIdV':uIdV, 'uPV':uPV }; alert (userId, userP); 
 			var config= {params: data, headers: {'Accept' : 'application/json'}};  $http.get("pages/connection.php", config) .then (function(response)
 			{    if (response.data.length> 0) 
-				{ alert ('hi'); $cookies.put ('logStat', true);    
+				{  $cookies.put ('logStat', true);    
 					var y2=document.getElementById("myNav"); $rootScope.logRec= response.data; var tOpt=''; fHome='';  $scope.arrJson=[]; $scope.arrJson2=[]; var jsonData2;  var jsonData;
 					for(var k in response.data) {  tOpt=tOpt+ "<option>"+  response.data[k]['licenseNo'].length  + "</option>"; 
 					jsonData = {'EmpId':response.data[k]['EmpId'], 'licenseNo':response.data[k]['licenseNo'] , 'lictype' : response.data[k]['lictype'],  'Name':response.data[k]['Name'], 'EmpFName':response.data[k]['EmpFName'], 'EmpLName':response.data[k]['EmpLName'], 'PrevName':response.data[k]['PrevName'], 'EmpEaddress':response.data[k]['EmpEaddress'], 'Email':response.data[k]['Email'], 'EmpUserId':response.data[k]['EmpUserId'], 'EmpPassword':response.data[k]['EmpPassword']};  $scope.arrJson.push(jsonData); 
