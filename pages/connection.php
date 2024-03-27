@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
 header('Access-Control-Max-Age: 1000');
 
 use PHPMailer\PHPMailer\PHPMailer;  require_once ('../PHPMailer/PHPMailer.php');   require_once "../PHPMailer/SMTP.php";   require_once "../PHPMailer/Exception.php";
-$dbName= "heroku_cdcc5d2c5ee9a30"; $servername = "us-cluster-east-01.k8s.cleardb.net"; $username = "b91508f33657c6"; $getName=htmlspecialchars($_GET['getName']); $r_P= "b90e8ecb"; /*htmlspecialchars($_GET['root_P']);*/  $Data=array(); 
+$servername = "us-cluster-east-01.k8s.cleardb.net"; $dbName= "heroku_cdcc5d2c5ee9a30"; $username = "b91508f33657c6";  $r_P= "b90e8ecb"; $getName=htmlspecialchars($_GET['getName']);  $Data=array(); 
 
 function  decrypt ($tData, $t_Name) {  if ($t_Name=='employee') foreach($tData as $k=>$v) { if ($k=='EmpFName' || $k=='EmpMName' || $k=='EmpLName' || $k=='EmpBD' || $k=='EmpPhone' || $k=='EmpEaddress' || $k=='EmpUserId' || $k=='EmpStreetAdd' || $k=='EmpPassword' )  { $tData[$k]= htmlspecialchars(decryption($v));  }  }
 				else if ($t_Name=='resident') { foreach($tData as $k=>$v) {  if ($k=='1' || $k=='2' || $k=='3' || $k=='ResDB' || $k=='ResFName' || $k=='ResMName' || $k=='ResLName' || $k=='ResSSN') $tData[$k]= htmlspecialchars(decryption($v)); } }
@@ -32,7 +32,7 @@ function  encryption ($plaintext) {  $key="STEJ!asla@merp#uloh%eoie^lth&";  $cip
 	$result= mysqli_query ($conn, $query);	if (mysqli_num_rows($result)>0) { $Data=array(); while($row=mysqli_fetch_array($result)){ $Data[]= $row; } }
 	 } catch(Exception $e) { $Data[]= 'What is up man!'; }  mysqli_close($conn); header('Content-type: application/json'); echo json_encode($Data);
 			}
-/*3updated*/ else if ($getName=='logginRecord') { /* $dbName= htmlspecialchars($_GET['dbName']); */ $uPV= encryption(htmlspecialchars($_GET['uPV'])); $uIdV=encryption(htmlspecialchars($_GET['uIdV'])); $D1=array();
+/*3updated*/ else if ($getName=='logginRecord') {  $uPV= encryption(htmlspecialchars($_GET['uPV'])); $uIdV=encryption(htmlspecialchars($_GET['uIdV'])); $D1=array();
 		try { $conn = new mysqli($servername, $username, $r_P,$dbName); 
 		$query="SELECT Employee.EmpId, Licensed.licenseNo, Licensed.lictype, fosterhome.Name, fosterhome.Address, fosterhome.City, fosterhome.State, fosterhome.Zipcode, operator.CellPhone, fosterhome.HomePhone, fosterhome.Fax, operator.OpFName, operator.OpMName, operator.OpLName, operator.OpAddress , operator.OpCity , operator.OpState , operator.OpZipCode, operator.Email, operator.OpDb,  Employee.EmpFName, Employee.EmpMName, Employee.EmpLName, Employee.EmpBD, Employee.PrevName, Employee.EmpEaddress, Employee.EmpUserId, Employee.EmpPassword, Employee.Dis   FROM licensed INNER JOIN hasEmployee ON hasEmployee.licenseNo=licensed.licenseNo INNER JOIN fosterhome ON fosterhome.FostId=licensed.FostId INNER JOIN operator ON operator.OpId=licensed.OpId  JOIN Employee ON Employee.EmpId=hasEmployee.EmpId WHERE EmpUserId='".$uIdV."' and EmpPassword='".$uPV."'"; 
 	$result= mysqli_query ($conn, $query);	if (mysqli_num_rows($result)>0) { while($row=mysqli_fetch_array($result)){ $Data[]= decrypt ($row, 'employee'); } }
