@@ -71,10 +71,10 @@ app.controller ('loginCtrl', function ($scope,$rootScope, $http, $location, $coo
 		$scope.getColNames = function (dbName, tName) { $scope.curK; var data= { 'dbName': dbName, 'tName': tName, 'getName':'getColNames', 'root_P':$rootScope.rootP };  var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) 	.then (function(response) { $scope.rP[$scope.curK].userId=response.data; $scope.rP[$scope.curK].userpass=response.data;   }) , function (response) { alert ("failed to show"); }; }					
 		$scope.saveConfig = function (dbName, tName, uId, uP) { $scope.checkSignIn=true;  $scope.sfChecker=true; $scope.rpChecker=false; $scope.checkConfigT=false; var data= { 'getName':'saveConfiguration', 'root_P':$rootScope.rootP, 'dbName': dbName, 'tName': tName.Table_Name, 'uId': uId.tblLabel, 'uP': uP.tblLabel, 'style': 'Style' };  var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) 	.then (function(response) {  alert (response.data); }) , function (response) { alert ("failed to show"); }; }
 		$scope.checkconfigTRecord = function (rootP) {  var data= { 'getName':'configTRecord', 'root_P':rootP }; var config= {params: data, headers: {'Accept' : 'application/json'}}; $http.get("pages/connection.php", config) .then (function(response) { $scope.rtRec=response.data; $scope.checkConfigTable($scope.rP, rootP); }) , function (response) { alert ("failed to show"); };  }	
-	$scope.signIn = function (userId, userP) {  $rootScope.logRec=null; $scope.checkLoginRecord (userId, userP);  }
-		$scope.checkLoginRecord = function (uIdV, uPV) {  var data= { 'getName':'logginRecord',  'uIdV':uIdV, 'uPV':uPV }; 
+	$scope.signIn = function (userId, userP) { alert ('function signIN'); $rootScope.logRec=null; $scope.checkLoginRecord (userId, userP);  }
+		$scope.checkLoginRecord = function (uIdV, uPV) {  alert ('checkLoginRecord'); var data= { 'getName':'logginRecord',  'uIdV':uIdV, 'uPV':uPV }; 
 			var config= {params: data, headers: {'Accept' : 'application/json'}};  $http.get("pages/connection.php", config) .then (function(response)
-			{   alert (userId, userP);  if (response.data.length> 0) 
+			{   if (response.data.length> 0) 
 				{  $cookies.put ('logStat', true);    
 					var y2=document.getElementById("myNav"); $rootScope.logRec= response.data; var tOpt=''; fHome='';  $scope.arrJson=[]; $scope.arrJson2=[]; var jsonData2;  var jsonData;
 					for(var k in response.data) {  tOpt=tOpt+ "<option>"+  response.data[k]['licenseNo'].length  + "</option>"; 
