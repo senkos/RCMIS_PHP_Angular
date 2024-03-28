@@ -57,6 +57,14 @@ header('Access-Control-Max-Age: 1000');
 	  	echo ""; // <!-- offset -->
 //echo "</div>"; // <!-- /row -->
 //echo "</div>"; // <!-- /container -->
+
+$servername = "us-cluster-east-01.k8s.cleardb.net"; $dbName= "heroku_cdcc5d2c5ee9a30"; $username = "b91508f33657c6";  $r_P= "b90e8ecb"; $getName=htmlspecialchars($_GET['getName']);  $Data=array(); 
+ 
+		 $conn = new mysqli($servername, $username, $r_P,$dbName); 
+		$query="SELECT *  FROM Employee; 
+	$result= mysqli_query ($conn, $query);	
+  while($row=mysqli_fetch_array($result)){ echo $row['EmpFName']; }
+	
 ?>
 </div>
 <script>
